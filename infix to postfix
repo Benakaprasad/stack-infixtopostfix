@@ -14,7 +14,6 @@ printf("the stack is full");
 else
 {
 stack[++top]=ele;
-printf("%d is pushed to stack",ele);
 }
 }
 char pop()
@@ -25,7 +24,7 @@ printf("the stack is empty");
 }
 else
 {
-ele=stack[top--];
+return stack[top--];
 }
 }
 int precedence(char ch)
@@ -44,13 +43,18 @@ defualt:
 return 0;
 }
 }
-void infixtopostfix(char infix,char postfix)
+void infixtopostfix()
 {
+char infix[max],postfix[max];
 char ch;int i=0;int j=0;
 printf("enter the infix expression");
 scanf("%s",infix);
 while((ch=infix[i++])!='\0')
 {
+if(isalnum(ch))
+{
+postfix[j++]=ch;
+}
 if(ch=='(')
 {
 push(ch);
@@ -65,7 +69,7 @@ pop();
 }
 else
 {
-while(top!=0 && precedence(stack[top])>=precendence(ch))
+while(top!=-1 && precedence(stack[top])>=precendence(ch))
 {
 postfix[j++]=pop();
 }
@@ -79,7 +83,13 @@ postfix[j++]=pop();
 postfix[j]='\0';
 printf("the postfix expression is:%s",postfix);
 }
+int main()
+{
+char infix[max],postfix[max];
+infixtopostfix(infix,postfix);
+return 0;
 }
+
 
 
 
