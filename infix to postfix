@@ -85,8 +85,7 @@ printf("the postfix expression is:%s",postfix);
 }
 int main()
 {
-char infix[max],postfix[max];
-infixtopostfix(infix,postfix);
+infixtopostfix();
 return 0;
 }
 
