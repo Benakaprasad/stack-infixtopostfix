@@ -7,7 +7,7 @@ int stack[max];
 int top=-1;
 void push(char ele)
 {
-if(top==max-1)
+if(top>=max-1)
 {
 printf("the stack is full");
 }
@@ -24,7 +24,7 @@ printf("the stack is empty");
 }
 else
 {
-return stack[top--];
+chat ele=stack[top--];
 }
 }
 int precedence(char ch)
@@ -55,7 +55,7 @@ if(isalnum(ch))
 {
 postfix[j++]=ch;
 }
-if(ch=='(')
+else if(ch=='(')
 {
 push(ch);
 }
@@ -69,7 +69,7 @@ pop();
 }
 else
 {
-while(top!=-1 && precedence(stack[top])>=precedence(ch))
+while(top!=-1 && precedence(stack[top]>=precedence(ch)))
 {
 postfix[j++]=pop();
 }
