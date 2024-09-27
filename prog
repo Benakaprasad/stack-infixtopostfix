@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<stdlib>
+#include<ctype.h>
+#include<string.h>
+#define max 100
+int stack[max];
+int top=-1;
+void push(char ele)
+{
+if(top==max-1)
+{
+printf("the stack is full");
+}
+else
+{
+stack[++top]=ele;
+printf("%d is pushed to stack",ele);
+}
+}
+char pop()
+{
+if(top<0)
+{
+printf("the stack is empty");
+}
+else
+{
+ele=stack[top--];
+}
+}
+int precedence(char ch)
+{
+switch(ch)
+{
+case '+':
+case '-':
+return 1;
+case '*':
+case '/':
+return 2;
+case '^':
+return 3;
+defualt:
+return 0;
+}
+
+
