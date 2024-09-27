@@ -43,5 +43,44 @@ return 3;
 defualt:
 return 0;
 }
+}
+void infixtopostfix(char infix,char postfix)
+{
+char ch;int i=0;int j=0;
+printf("enter the infix expression");
+scanf("%s",infix);
+while((ch=infix[i++])!='\0')
+{
+if(ch=='(')
+{
+push(ch);
+}
+else if(ch==')')
+{
+while(top!=-1 && stack[top]!='(')
+{
+postfix[j++]=pop();
+}
+pop();
+}
+else
+{
+while(top!=0 && precedence(stack[top])>=precendence(ch))
+{
+postfix[j++]=pop();
+}
+push(ch);
+}
+}
+while(top!=-1)
+{
+postfix[j++]=pop();
+}
+postfix[j]='\0';
+printf("the postfix expression is:%s",postfix);
+}
+}
+
+
 
 
