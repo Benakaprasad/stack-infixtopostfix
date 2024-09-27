@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<stdlib>
+#include<stdlib.h>
 #include<ctype.h>
 #include<string.h>
 #define max 100
@@ -47,7 +47,7 @@ void infixtopostfix()
 {
 char infix[max],postfix[max];
 char ch;int i=0;int j=0;
-printf("enter the infix expression");
+printf("enter the infix expression\n");
 scanf("%s",infix);
 while((ch=infix[i++])!='\0')
 {
@@ -69,7 +69,7 @@ pop();
 }
 else
 {
-while(top!=-1 && precedence(stack[top])>=precendence(ch))
+while(top!=-1 && precedence(stack[top])>=precedence(ch))
 {
 postfix[j++]=pop();
 }
@@ -81,7 +81,7 @@ while(top!=-1)
 postfix[j++]=pop();
 }
 postfix[j]='\0';
-printf("the postfix expression is:%s",postfix);
+printf("the postfix expression is:%s\n",postfix);
 }
 int main()
 {
