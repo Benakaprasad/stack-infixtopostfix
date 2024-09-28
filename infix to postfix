@@ -24,7 +24,7 @@ printf("the stack is empty");
 }
 else
 {
-chat ele=stack[top--];
+char ele=stack[top--];
 }
 }
 int precedence(char ch)
@@ -69,7 +69,7 @@ pop();
 }
 else
 {
-while(top!=-1 && precedence(stack[top]>=precedence(ch)))
+while(top!=-1 && precedence(stack[top])>=precedence(ch))
 {
 postfix[j++]=pop();
 }
